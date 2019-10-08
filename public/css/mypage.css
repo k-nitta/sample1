@@ -1,0 +1,103 @@
+
+#my_room {
+	padding: 3%;
+	height: 300px;
+}
+
+#first_area {
+	margin-top: -20px;
+	text-align: center;
+}
+
+#first_area img {
+	width: 50%;
+}
+
+#life_area {
+	display: table;
+	margin: 0 3%;
+	background-color: rgb(255,255,200, 0.5);
+	border-radius: 10%;
+}
+
+#life_area #cell_1,
+#life_area #cell_2 {
+	display: table-cell;
+}
+
+#life_area #cell_1 {
+	padding-right: 5px;
+	width: 20%;
+	border: medium solid #ff69b4;
+    border-radius: 10%;
+}
+
+#life_area #cell_1 img {
+	width: 100%;
+	height: auto;
+}
+
+#life_area #cell_2 {
+	vertical-align: middle;
+	width: 70%;
+}
+
+#life_area #cell_2 img {
+	height: 200%;
+}
+
+
+#event_area ul {
+	width: 85%;
+	list-style-type: none;
+}
+
+#event_area ul a {
+	text-decoration: none;
+}
+
+#event_area ul li {
+	background-color: rgb(255,255,200, 0.8);
+	border-radius: 5%;
+	padding: 3%;
+	border: medium solid #ff69b4;
+}
+
+#get_item {
+	position: absolute;
+	z-index: 50;
+	background-color: black;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	opacity: 0.8;
+	text-align: center;
+}
+
+#get_item #item_area {
+	height: 80%;
+	width: 80%;
+	margin: auto;
+	margin-top: 10%;
+	background: white;
+	padding-top: 10%;
+}
+
+#get_item #item_area p {
+	font-size: 28px;
+	font-weight: bold;
+}
+
+#get_item #button_area {
+	height: 30%;
+	width: 80%;
+	position: absolute;
+	z-index: 100;
+	top: 80%;
+	margin: auto;
+}
+
+#get_item #button_area a {
+	display: inline;
+}
+

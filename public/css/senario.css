@@ -1,0 +1,209 @@
+
+body {
+background: black;
+}
+
+/*** シナリオタイトル ***/
+
+#title_area {
+	width: 100%;
+	height: 100%;
+	z-index: 50;
+	background: black;
+	text-align: center;
+	display: none;
+}
+
+#title_area img {
+width: 90%;
+    height: 95%;
+    /* margin: 10px; */
+    /* position: static; */
+    /* padding: 10px 0 40px; */
+    /* top: 50%; */
+    margin-top: 15px;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+#title_area #title {
+    position: absolute;
+    top: 10%;
+    text-align: center;
+    width: 100%;
+}
+
+#title_area #title h1 {
+	margin: 0 10% 0 10%;
+	position: relative;
+	padding: 0.25em 1em;
+	border-top: solid 2px black;
+	border-bottom: solid 2px black;
+}
+
+#title_area #title h1:before, h1:after {
+	content: '';
+	position: absolute;
+	top: -7px;
+	width: 2px;
+	height: -webkit-calc(100% + 14px);
+	height: calc(100% + 14px);
+	background-color: black;
+}
+
+#title_area #title h1:before {
+	left: 7px;
+}
+
+#title_area #title h1:after {
+	right: 7px;
+}
+
+#title_area #detail_area {
+	width: 100%;
+	height: 60%;
+	position: absolute;
+	top: 30%;
+}
+
+#title_area #detail_area #detail{
+	margin: 0 10%;
+	height: 80%;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: left;
+}
+
+/*** 回答 ***/
+
+#question_area {
+	width: 100%;
+	height: 100%;
+	z-index: 30;
+	background: black;
+	position: absolute;
+	opacity: 0.9;
+	display: none;
+}
+
+#question_area ul {
+	padding-top: 20%;
+	list-style-type: none;
+}
+
+#question_area ul li {
+	color: white;
+	border-radius: 5%;
+	padding: 3%;
+	border: medium solid #ff69b4;
+	width: 80%;
+	margin-bottom: 10%;
+}
+
+#question_area  ul li a {
+	text-decoration: none;
+	color: white;
+	display: block;
+}
+
+
+/*** シナリオ再生部分 ***/
+
+#click_area {
+	display: none;
+}
+
+#click_area #my_room {
+	position: absolute;
+	z-index: 90;
+	top: 5%;
+	right: 5%;
+}
+
+#click_area #my_room a {
+	background-color: #ffa07a;
+	padding: 5px 10px;
+	border-radius: 10px;
+	box-shadow: 2px 2px 4px red;
+	font-weight: bold;
+}
+
+#text_area {
+	z-index: 5;
+	height: 150px;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	bottom: 5%;
+}
+
+#text_area img {
+	width: 90%;
+	height: 100%;
+}
+
+#message {
+	position: absolute;
+	width: 70%;
+	height: 60%;
+	left: 15%;
+	top: 15%;
+	text-align: left;
+	color: #fff;
+	font-size: 18px;
+}
+
+#left {
+	position: absolute;
+	width: 50%;
+	height: 50%;
+	z-index: 2;
+	top: 25%;
+	margin-left: 5%;
+}
+
+#center {
+	position: absolute;
+	width: 50%;
+	height: 50%;
+	z-index: 4;
+	top: 25%;
+	margin-left: 25%;
+}
+
+#right {
+	position: absolute;
+	width: 50%;
+	height: 50%;
+	z-index: 3;
+	top: 25%;
+	margin-left: 45%;
+}
+
+#left img,
+#center img,
+#right img {
+	display: none;
+}
+
+#next {
+	-webkit-animation:fuwafuwa 2s infinite linear alternate;
+	animation:fuwafuwa 2s infinite linear alternate;
+
+	position: absolute;
+	bottom: 10%;
+	right: 13%;
+	display: none;
+
+	width: 0;
+	height: 0;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-top: 15px solid black;
+}
+
+@-webkit-keyframes fuwafuwa {
+	0% {-webkit-transform:translate(0, 0) rotate(-0deg);}
+	50% {-webkit-transform:translate(0, -5px) rotate(0deg);}
+	100% {-webkit-transform:translate(0, 0)rotate(0deg);} 
+}

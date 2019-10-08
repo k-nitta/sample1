@@ -1,0 +1,38 @@
+
+#back_img {
+	position: initial;
+}
+
+.bx-wrapper {
+	position: absolute;
+	top: 25%;
+}
+
+.bxslider li {
+	background-color: #000;
+	border-color: yellow;
+	border-style: double;
+	height: 280px;
+}
+
+.bxslider li img {
+	width: 100%;
+	height: 100%;
+}
+
+#button_area {
+	position: absolute;
+	bottom: 10%;
+	height: 100px;
+	display: none;
+	width: 100%;
+	text-align: center;
+}
+
+#button_area p {
+	font-size: 22px;
+}
+
+#button_area a {
+	display: inline;
+}
