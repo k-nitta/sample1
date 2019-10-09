@@ -10,14 +10,17 @@
 		<script src="{{ asset('/js/ajax_client.js') }}"></script>
 		<script>
 			$(function () {
+
+				var url;
+				var ajax_client = new AjaxClient();
+
+				var successCallBack = function(data) {
+					location.href = url;
+				}
+
 				$('#first_area a').click(function() {
-					var url = "{{'event/' . $view_character['id'] . $story}}";
+					url = "{{'event/' . $view_character['id'] . $story}}";
 
-					var successCallBack = function(data) {
-							location.href = url;
-					}
-
-					var ajax_client = new AjaxClient();
 					ajax_client.send('api/progress_set', {url: url}, 'POST', successCallBack);
 
 					return false;
@@ -27,32 +30,23 @@
 					var click_li = $(this);
 					var click_story = click_li.data('story');
 
-					var url = 'event/' + {{ $view_character['id'] }} + click_story;
+					url = 'event/' + {{ $view_character['id'] }} + click_story;
 
-					var successCallBack = function(data) {
-							location.href = url;
-					}
-
-					var ajax_client = new AjaxClient();
 					ajax_client.send('api/progress_set', {url: url}, 'POST', successCallBack);
 
 					return false;
-				
 				});
 
 				$('#life_area #cell_1 a').click(function() {
+					url = 'mypage_character_select';
 
-					var url = 'mypage_character_select';
-
-					var successCallBack = function(data) {
-						location.href = url;
-					}
-
-					var ajax_client = new AjaxClient();
 					ajax_client.send('api/progress_set', {url: url}, 'POST', successCallBack);
+
+					return false;
 				});
 
 				$('a.yes').on('click', function() {
+					url = 'mypage';
 
 					var click_li = $(this);
 					var click_img = click_li.data('img');
@@ -60,9 +54,7 @@
 
 					var ajax_client = new AjaxClient();
 
-					ajax_client.send('api/image_convert', {img: click_img, type: click_type}, 'POST',  function(data) {
-						location.href = 'mypage';
-					});
+					ajax_client.send('api/image_convert', {img: click_img, type: click_type}, 'POST',  successCallBack);
 
 					return false;
 				});
@@ -76,7 +68,7 @@
 		</script>
 	</head>
 	<body>
-		<div id="main_area" style="background-image: url(./img/test.jpg);">
+		<div id="mypage_main_area" style="background-image: url(./img/mypage_back_img.jpg);">
 			<div id="my_room">
 				<img id="room_img" border="0" src="{{ asset('/img/' . $my_room_img['id'] . '.png/?' . str_random(8)) }}"></img>
 			</div>
@@ -107,21 +99,20 @@
 			</div>
 
 			@if ($clear_item)
-			<div id="get_item">
-				<div id="item_area">
-					<p>
-					{{$clear_item['name']}} をGET!!</br></br>
-					使用するとマイルームに反映されます<br>
-					<br>
-					※使用の有無に関わらず、再取得はできません。
-					</p>
-					<div id="button_area">
-						<a data-img="{{ $clear_item['img'] }}" data-type="{{ $clear_item['type'] }}" href="" class="btn-square-shadow yes">は　い</a>
-						<a href="" class="btn-square-shadow no">いいえ</a>
+				<div id="get_item">
+					<div id="item_area">
+						<p>
+						{{$clear_item['name']}} をGET!!</br></br>
+						使用するとマイルームに反映されます<br>
+						<br>
+						※使用の有無に関わらず、再取得はできません。
+						</p>
+						<div id="button_area">
+							<a data-img="{{ $clear_item['img'] }}" data-type="{{ $clear_item['type'] }}" href="#" class="btn-square-shadow yes">は　い</a>
+							<a href="#" class="btn-square-shadow no">いいえ</a>
+						</div>
 					</div>
 				</div>
-			
-			</div>
 			@endif
 
 		</div>

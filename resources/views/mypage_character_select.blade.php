@@ -43,7 +43,6 @@
 						$('#button_area').hide();
 						selectIndex = oldIndex + 1;
 					}
-
 				});
 
 				$('a.yes').on('click', function() {
@@ -79,14 +78,14 @@
 
 			<ul class="bxslider">
 			    @foreach ($characters as $character)
-			    	<li data-id="{{ $character['id'] }}"><img src="{{ asset('img/' . $character['img']) }}" alt=""></li>
+			    	<li data-id="{{ $character['id'] }}"><img src="{{ asset('img/' . $character['img']) }}"></li>
 				@endforeach
 			</ul>
 
 			<div id="button_area">
 				<p>よろしいですか？</p>
-				<a href="" class="btn-square-shadow yes">は　い</a>
-				<a href="" class="btn-square-shadow no">いいえ</a>
+				<a href="#" class="btn-square-shadow yes">は　い</a>
+				<a href="#" class="btn-square-shadow no">いいえ</a>
 			</div>
 
 		</div>

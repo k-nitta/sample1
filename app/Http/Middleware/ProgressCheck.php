@@ -43,7 +43,8 @@ class ProgressCheck
         } else if ($path != '/' && !$progress_data) {
             return redirect('/');
         } else {
-            $gamen = Gamen::find($progress_data['gamen_id']);
+            $gamenModel = new Gamen();
+            $gamen = $gamenModel->find($progress_data['gamen_id']);
 
             if ($path == 'start') {
                 return redirect($gamen['url']);
@@ -51,14 +52,15 @@ class ProgressCheck
                 if (($gamen['level'] == 1) && ($gamen['url'] != $path)) {
                     return redirect($gamen['url']);
                 } else {
-                    $gamenModel = new Gamen();
                     $path_gamen = $gamenModel->findByUrl($path);
 
                     if (!$path_gamen) {
                         return redirect('/');
                     }
 
-                    if ($gamen['level'] > $path_gamen['level']) {
+                    if ($path_gamen['level'] == 1 && ($gamen['url'] != $path)) {
+                        return redirect($gamen['url']);
+                    }else if ($gamen['level'] > $path_gamen['level']) {
                         return redirect($path_gamen['url']);
                     } else if ($gamen['url'] != $path_gamen['url'] && $gamen['level'] == $path_gamen['level']) {
                         return redirect($gamen['url']);

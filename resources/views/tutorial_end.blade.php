@@ -66,12 +66,11 @@
 			.kirakira { position: absolute; left: 0; top: 0; }
 			.kirakira_inner { position: relative; display: none; }
 			.kirakira_one { position: absolute; left: 0; top: 0; }
-			/*-- キラキラ構成要素 : 横 --*/
+
 			.kirakira-x { position: relative; width: 20px; height: 20px; }
 			.kirakira-x::before { position: absolute; left: 50%; top: 50%; content: ''; width: 0; height: 0; margin-top:-10%; border-width:2px 10px; border-style:solid; border-color: transparent; border-left-color: yellow; }
 			.kirakira-x::after { position: absolute; right: 50%; top: 50%; content: ''; width: 0; height: 0; margin-top:-10%; border-width:2px 10px; border-style:solid; border-color:transparent; border-right-color: yellow; }
 
-			/*-- キラキラ構成要素 : 縦 --*/
 			.kirakira-y { position: relative; width: 20px; height: 20px; }
 			.kirakira-y::before { position: absolute; left: 50%; top: 50%; content: ''; width: 0; height: 0; margin-left: -10%; border-width: 10px 2px; border-style: solid; border-color: transparent; border-top-color: yellow; }
 			.kirakira-y::after { position: absolute; left: 50%; bottom: 50%; content: ''; width: 0; height: 0; margin-left: -10%; border-width: 10px 2px; border-style: solid; border-color: transparent; border-bottom-color: yellow; }
@@ -98,7 +97,7 @@
 	</head>
 	<body style="margin: 0">
 		<div id="main_area" width="100%" height="100%">
-		
+
 			<img id="back_img" border="0" src="../img/img2.jpg" width="100%"
 			style="z-index: 1; position: absolute; top: 0px;"></img>
 				<div id="center">

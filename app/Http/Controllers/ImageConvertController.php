@@ -11,15 +11,6 @@ use Cookie;
 
 class ImageConvertController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -35,6 +26,11 @@ class ImageConvertController extends Controller
         $progress_id = Cookie::get('progress_id');
 
         $convert = new Convert();
+
+        $convert->where('progress_id', $progress_id)
+                ->where('type', $type)
+                ->delete();
+
         $convert->progress_id = $progress_id;
         $convert->type = $type;
         $convert->img = $img;
@@ -57,37 +53,4 @@ class ImageConvertController extends Controller
         return '{}';
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

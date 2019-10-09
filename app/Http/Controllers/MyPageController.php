@@ -25,27 +25,22 @@ class MyPageController extends Controller
     public function index(Request $request)
     {
 
-        $clearEvent = new ClearEvent();
-
         $progress_id = Cookie::get('progress_id');
 
         $clear_item = null;
 
+        $clearEvent = new ClearEvent();
         $clear_event = $clearEvent->findByProgressId($progress_id);
+
         $event = new Event();
         if ($clear_event) {
-            $event = new Event();
             $item = new Item();
 
             $clear = $event->find($clear_event['event_id']);
             $clear_item = $item->find($clear['item_id'])->toArray();
 
-
-
             $getItem = new GetItem();
             $get_item = $getItem->where('progress_id', $progress_id)->where('item_id', $clear_item['id'])->get();
-
-
 
             if ($get_item->toArray()) {
                 $get_item = $get_item->toArray()[0];
@@ -88,9 +83,9 @@ class MyPageController extends Controller
     private function myRoomImg($progress_id)
     {
         $myRoomImg = new MyRoomImg();
-        $myRoomImg = $myRoomImg->findByProgressId($progress_id);
+        $myroom_img = $myRoomImg->findByProgressId($progress_id);
 
-        return $myRoomImg;
+        return $myroom_img;
     }
 
 }

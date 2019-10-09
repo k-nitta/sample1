@@ -12,9 +12,6 @@
 */
 
 Route::get('/', function () {
-
-ImageConvert::convert('myRoom1.png', null);
-
     return view('top');
 });
 
@@ -36,14 +33,16 @@ Route::get('/tutorial', function () {
 
 Route::get('tutorial_end', function () {
 
-        $progress_id = Cookie::get('progress_id');
+    $progress_id = Cookie::get('progress_id');
 
-        $event = new \App\Event();
+    $event = new \App\Event();
 
-        \App\ClearEvent::updateOrCreate(
-            ['progress_id' => $progress_id],
-            ['event_id' => $event->findByEvent('tutorial')['id']]
-        );
+    \App\ClearEvent::updateOrCreate(
+        ['progress_id' => $progress_id],
+        ['event_id' => $event->findByEvent('tutorial')['id']]
+    );
+
+    ImageConvert::convert('myRoom1.png', null);
 
     return view('tutorial_end');
 });
@@ -77,8 +76,6 @@ Route::get('/event_end/{id}', function ($id) {
         ['progress_id' => $progress_id],
         ['event_id' => $data['id']]
     );
-
-
 
     $obj = new \App\GetItem();
     $item = $obj->where('progress_id', $progress_id)->where('item_id', $data['item_id'])->get();

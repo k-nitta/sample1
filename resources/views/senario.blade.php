@@ -38,12 +38,9 @@
 
 								return false;
 							});
-
 						});
-
 					});
 				});
-
 			});
 		</script>
 	</head>
@@ -64,6 +61,7 @@
 		</div>
 
 		<div id="click_area">
+
 			@if ($event != 'tutorial')
 				<div id="my_room">
 					<a>マイページへ</a>
