@@ -9,8 +9,6 @@ class ImageConvert
 {
     public static function convert($myRoom, $fuku) {
 
-        //$path = public_path('img/chara_main.png');
-
         $chracterImg = imagecreatefrompng(public_path('img/chara_main.png'));
         imageLayerEffect($chracterImg, IMG_EFFECT_ALPHABLEND);
         imagecolortransparent($chracterImg, imagecolorallocate($chracterImg, 0, 0, 0));
@@ -26,7 +24,6 @@ class ImageConvert
             imagecopy($chracterImg, $fukuImg, $width / 2 - ($subwidth / 2), 0, 0, 0, $width, $height);
         }
 
-        // 部屋の画像取得
         $roomImg = imagecreatefrompng(public_path('img/' . $myRoom));
         list($roomWidth, $roomHeight) = getimagesize(public_path('img/' . $myRoom));
 

@@ -128,7 +128,7 @@
 						{{$clear_item['name']}} をGET!!</br></br>
 						使用するとマイルームに反映されます<br>
 						<br>
-						※使用の有無に関わらず、再取得はできません。
+						※後からの使用可能です。
 						</p>
 						<div id="button_area">
 							<a data-img="{{ $clear_item['img'] }}" data-type="{{ $clear_item['type'] }}" href="#" class="btn-square-shadow yes">は　い</a>
