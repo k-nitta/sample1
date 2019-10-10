@@ -50,9 +50,7 @@
 
 					var click_li = $(this);
 					var click_img = click_li.data('img');
-					var click_type = click_li.data('type')
-
-					var ajax_client = new AjaxClient();
+					var click_type = click_li.data('type');
 
 					ajax_client.send('api/image_convert', {img: click_img, type: click_type}, 'POST',  successCallBack);
 
@@ -64,6 +62,28 @@
 					return false;
 				});
 
+				$('#item').on('click', function() {
+
+					$("#item_dialog").dialog({
+						modal:true,
+						width:150,
+						height:250,
+						title:"アイテム",
+					});
+
+					$('.item_li').on('click', function() {
+						url = 'mypage';
+
+						var click_li = $(this);
+						var click_img = click_li.data('img');
+						var click_type = click_li.data('type');
+
+						ajax_client.send('api/image_convert', {img: click_img, type: click_type}, 'POST',  successCallBack);
+						
+					});
+
+				});
+
 			});
 		</script>
 	</head>
@@ -71,6 +91,9 @@
 		<div id="mypage_main_area" style="background-image: url(./img/mypage_back_img.jpg);">
 			<div id="my_room">
 				<img id="room_img" border="0" src="{{ asset('/img/' . $my_room_img['id'] . '.png/?' . str_random(8)) }}"></img>
+				<div id="item">
+					<img border="0" src="{{ asset('/img/item.png') }}">
+				</div>
 			</div>
 			<div id="first_area">
 				<a href="#">
@@ -116,5 +139,8 @@
 			@endif
 
 		</div>
+
+        @extends('dialog.item')
+
 	</body>
 </html>

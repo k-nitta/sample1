@@ -59,7 +59,9 @@ class MyPageController extends Controller
 
         $my_room_img = $this->myRoomImg($progress_id);
 
-        return view('mypage', compact('my_room_img', 'view_character', 'story', 'event_list', 'clear_item'));
+        $my_items = $this->myItem($progress_id);
+
+        return view('mypage', compact('my_room_img', 'view_character', 'story', 'event_list', 'clear_item', 'my_items'));
 
     }
 
@@ -86,6 +88,22 @@ class MyPageController extends Controller
         $myroom_img = $myRoomImg->findByProgressId($progress_id);
 
         return $myroom_img;
+    }
+
+    private function myItem($progress_id)
+    {
+        $getItem = new GetItem();
+        $get_items = $getItem->withTrashed()->where('progress_id', $progress_id)->get();
+
+        $item_id = [];
+        foreach ($get_items as $get_item) {
+            $item_id[] = $get_item['item_id'];
+        }
+
+        $item = new Item();
+        $item_data = $item->find($item_id);
+
+        return $item_data;
     }
 
 }

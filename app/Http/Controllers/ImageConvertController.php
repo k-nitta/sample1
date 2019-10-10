@@ -29,7 +29,7 @@ class ImageConvertController extends Controller
 
         $convert->where('progress_id', $progress_id)
                 ->where('type', $type)
-                ->delete();
+                ->forceDelete();
 
         $convert->progress_id = $progress_id;
         $convert->type = $type;
